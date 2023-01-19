@@ -23,7 +23,7 @@ const userSchema = mongoose.Schema({
     photo: {
         type: String,
         required: [true, 'Upload your photo'],
-        default: ''
+        default: 'yt.com'
     },
     phone: {
         type: String,
