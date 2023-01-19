@@ -4,6 +4,7 @@ import cors from 'cors'
 import colors from 'colors'
 import connectDB from './config/connectDB.js'
 import userRoutes from './routes/userRoutes.js'
+import { errorHandler, notFound } from './middleware/errorMiddleware.js'
 
 const port = process.env.PORT || 5000
 
@@ -18,6 +19,12 @@ app.use(cors())
 
 //Routes Middleware
 app.use('/users', userRoutes)
+
+
+// Custom Error Middleware 
+app.use(notFound)
+app.use(errorHandler)
+
 
 app.get('/', (req, res) => {
     res.send('Server is running...✅ ')
