@@ -41,7 +41,7 @@ const userSchema = mongoose.Schema({
 
     }
 )
-
+//Hashed Password :
 userSchema.methods.matchPassword = async function (enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password)
 }
